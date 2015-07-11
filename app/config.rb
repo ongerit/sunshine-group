@@ -6,7 +6,17 @@ http_path = "/"
 css_dir = "styles"
 sass_dir = "sass"
 images_dir = "images"
-javascripts_dir = "javascripts"
+javascripts_dir = "scripts"
+
+
+# Require any additional compass plugins installed on your system.
+require 'compass-normalize'
+require 'rgbapng'
+require 'toolkit'
+require 'breakpoint'
+require 'singularitygs'
+require 'susy'
+require 'sass-globbing'
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
