@@ -1,7 +1,12 @@
-console.log('\'Allo \'Allo!');
-
-
-// MM-Menu Code
 $(document).ready(function() {
-	$("#menu").mmenu();
+// MM-Menu Code
+	$('#menu').mmenu();
+	
+// http://baijs.com/tinycarousel/	
+
+
+	
+// Built with	
+	console.log('This site was created using sass, susy, compass, breakpoints, bower, grunt, jquery, mmenu and npm:: by Thomas Ongeri');
+	
 });

@@ -10,6 +10,10 @@ p {
   font-weight: 300;
   line-height: 1.4; }
 
+/* line 13, ../sass/_typography.scss */
+a, li {
+  font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif; }
+
 /*********************
 BREAKPOINTS
 *********************/
@@ -169,7 +173,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin: 0 auto;
-  padding: 2em 0 3em 1.5%;
+  padding: 0 0 3em 0;
   background: #fff; }
   /* line 12, ../../../../../../usr/local/lib/ruby/gems/2.1.0/gems/susy-2.2.5/sass/susy/output/support/_clearfix.scss */
   .company-info:after {
@@ -216,7 +220,7 @@ body {
     .company-info .col2 .button-container {
       float: right;
       clear: both;
-      width: 75%; }
+      width: 77%; }
       /* line 153, ../sass/main.scss */
       .company-info .col2 .button-container .button-green {
         color: #fff;
