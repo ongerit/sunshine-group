@@ -2,6 +2,7 @@
 // generator-webapp 0.5.1
 'use strict';
 
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -24,6 +25,12 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+	  compass: {
+	      options: {
+	        require: 'susy'			  
+	      }
+	    },
 
     // Project settings
     config: config,
@@ -391,11 +398,3 @@ module.exports = function (grunt) {
   ]);
 };
 
-// Gruntfile.js
-compass: {
-    options: {
-      require: 'susy',
-
-    }
-  }
-},

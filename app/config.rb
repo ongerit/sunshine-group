@@ -18,6 +18,10 @@ require 'singularitygs'
 require 'susy'
 require 'sass-globbing'
 
+
+output_style = :nested
+
+
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 
