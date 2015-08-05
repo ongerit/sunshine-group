@@ -1,23 +1,19 @@
 /************************************************
  *	Settings for Susy
  ************************************************/
-$susy: (
-		columns: 12,
-		gutters: 1/4,
-		math: fluid,
-		output: float,
-		gutter-position: inside,
-);
 
+$susy: ( columns: 12, gutters: 1/4, math: fluid, output: float, gutter-position: inside, );
 $desk-container: 1200px;
-
 /************************************************
  *	End of Setting for Susy 
  ************************************************/
-
 /************************************************
  *	Settings for Breakpoint
  ************************************************/
 
 $mobile: max-width 600px;
 $desktop: min-width 601px;
+
+/************************************************
+ *	End of Settings for Breakpoint
+ ************************************************/

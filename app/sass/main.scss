@@ -4,434 +4,357 @@
 @import "singularitygs";
 @import "toolkit";
 @import "susy";
-
 // If there are variables, functions or mixins that depend on each other and
 // therefore need to be imported in a specific order you can import them
 // directly. Variables-, function- or mixin providing partials should never
 // output any styles themselves: Importing them multiple times to resolve
 // dependencies shouldn't be a problem.
-@import "_typography"; 
+@import "_typography";
 @import "_mixins";
 @import "_layout";
 @import "_colors";
 @import "_slider";
-
-
 //BREAKPOINTS EXAMPLE
-
 //@include breakpoint(max-width 460px) {
 //
 //      }
-
 .browsehappy {
     margin: 0.2e m 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
+
 body {
-  background-color: $gray-background;
-  margin: 0;
-  top: 0;
-}
-.button-green-bottom{
-  @include button($white,$green);
-  display: none;
-  width: 97%;
-  margin-top: 1%;
-	@include breakpoint(mobile){
-    display: block;
-  }
-  
-}
-.container{
-  @include container(960px);
+    background-color: $gray-background;
+    margin: 0;
+    top: 0;
 }
 
-.top-container{
-  background: $lime-green;
-  
-  .header{
+.button-green-bottom {
+    @include button($white, $green);
+    display: none;
+    width: 97%;
+    margin-top: 1%;
+    @include breakpoint(mobile) {
+        display: block;
+    }
+}
+
+.container {
+    @include container(960px);
+}
+
+.top-container {
+    background: $lime-green;
+    .header {
+        @include container(960px);
+        margin: 0 auto;
+        padding: 2em 1em 1.5%;
+        h3 {
+            color: $dark-green;
+            font-size: .75em;
+            float: left;
+            font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            line-height: 2.5em;
+            @include breakpoint(mobile) {
+                text-align: center;
+                line-height: 1.4em;
+                float: none;
+                width: 100%;
+            }
+        }
+        .button {
+            @include button($white, $dark-green);
+            margin-left: 3%;
+            @include breakpoint(mobile) {
+                float: none;
+                margin: 0 auto;
+                width: 60%;
+                display: block;
+                margin-top: 1%s;
+            }
+        }
+        .col1 {
+            @include span(1 of 2);
+            border-right: 1px solid $dark-green;
+            padding-right: 0;
+        }
+        .col2 {
+            @include span(1 of 2);
+            padding-right: 0;
+        }
+    }
+}
+
+.contact {
+    display: none;
+    @include breakpoint(mobile) {
+        display: block;
+    }
+    .call-mobile {
+        background: $green;
+        color: $white;
+        padding: 2% 0 2% 0;
+        text-align: center;
+    }
+}
+
+.company-info {
     @include container(960px);
     margin: 0 auto;
-    padding: 2em 1em 1.5%;
-    
-    
-    h3{
-      color: $dark-green;
-      font-size: .75em;
-      float: left;
-      font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 0;
-      line-height: 2.5em;
-    	@include breakpoint(mobile){
-        text-align: center;
-        line-height: 1.4em;
-        float: none;
-        width: 100%;
-      }
+    padding: 0 0 3em 0;
+    background: $white;
+    .col1 {
+        @include span(2 of 4);
+        @include breakpoint(mobile) {
+            width: 100%;
+            img {
+                width: 75%;
+            }
+        }
     }
-    
-    .button{
-      @include button($white,$dark-green);
-      margin-left: 3%;
-    	@include breakpoint(mobile){
-        float: none;
-        margin: 0 auto;
-        width: 60%;
-        display: block;
-        margin-top: 1%s;
-      }
-      
+    .col2 {
+        @include span(2 of 4);
+        @include breakpoint(mobile) {
+            display: none;
+        }
+        h4 {
+            color: $dark-gray;
+            font-weight: 300;
+            font-size: 1.5em;
+            float: right;
+            padding-bottom: 3%;
+        }
+        .button-container {
+            float: right;
+            clear: both;
+            width: 77%;
+            .button-green {
+                @include button($white, $green);
+                margin-right: 3%;
+                display: block;
+                margin: 0 auto;
+            }
+            .button-gray {
+                @include button($white, $gray);
+                margin-left: 3%;
+            }
+        }
     }
-    
-    .col1{
-      @include span(1 of 2); 
-      border-right: 1px solid $dark-green;
-      padding-right: 0;
-      
+    img {
+        float: left;
     }
-    .col2{
-      @include span(1 of 2);
-      padding-right: 0;
-
-    }
-    
-  }
 }
-
-.contact{
-  display: none;
-  @include breakpoint(mobile){
-    display: block;
-  }
-  
-  .call-mobile{
-    background:$green;
-    color: $white;
-    padding: 2% 0 2% 0;
-    text-align: center;
-  }
-  
-}
-
-
-.company-info{
-  @include container(960px);
-  margin: 0 auto;
-  padding: 0 0 3em 0;
-  background:$white;
-
-  .col1{
-    @include span(2 of 4);
-  	@include breakpoint(mobile){
-      width: 100%;
-      img{
-        width: 75%;
-        
-      }
-    }
-    
-    
-  }
-  
-  .col2{
-    @include span(2 of 4);
-  	@include breakpoint(mobile){
-      display: none;
-    }
-    
-    h4{
-      color: $dark-gray;
-      font-weight:300;
-      font-size: 1.5em;
-      float: right;
-      padding-bottom: 3%;
-    }
-    .button-container{
-      float: right;
-      clear:both;
-      width: 77%;
-      .button-green{
-        @include button($white,$green);
-        margin-right: 3%;
-        display:block;
-        margin: 0 auto;  
-      }
-      .button-gray{
-        @include button($white,$gray);
-        margin-left: 3%;
-        
-        
-      } 
-      
-    }      
-  }
-  
-  img{
-    float: left;
-  }
-}
-
 
 //Main Navigation
-.hamburger{
-  background-image: url(../images/hamburger.png);
-  width: 40px;
-  height: 40px;
-  float: right;
-  display:none;
-  @include breakpoint(mobile){
-    display:block;
-  }
-  
+.hamburger {
+    background-image: url(../images/hamburger.png);
+    width: 40px;
+    height: 40px;
+    float: right;
+    display: none;
+    @include breakpoint(mobile) {
+        display: block;
+    }
 }
 
-
-.navigation{
-  @include container(960px);
-  background-color: $white;
-  padding: 0 0 3em 0;
-  border-top: 4px solid $green-border;
-  
-  @include breakpoint (mobile){
-    display: none;
-  }
-  
-  nav{
-    background: $green;
-    
-    
-    ul{
-      list-style-type: none;
-      text-transform:uppercase;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      color: $white;
-      font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-      
+.navigation {
+    @include container(960px);
+    background-color: $white;
+    padding: 0 0 3em 0;
+    border-top: 4px solid $green-border;
+    @include breakpoint (mobile) {
+        display: none;
     }
-    li{
-      float: left;
-      padding: 1% 1% 2% 4%;
-      &:hover{
-        background-color: darken($green, 10%);
-  
-      }
+    nav {
+        background: $green;
+        ul {
+            list-style-type: none;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            color: $white;
+            font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        li {
+            float: left;
+            padding: 1% 1% 2% 4%;
+            &:hover {
+                background-color: darken($green, 10%);
+            }
+        }
+        a {
+            color: $white;
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
-    a{
-      color: $white;
-      text-decoration: none;
-      
-      &:hover{
-        text-decoration: none;
-        
-      }
-    }
-  } 
 }
 
 //Main Content
-
-.main-container{
-  @include container(960px);
-  background-color: $white;
-  margin: 0 auto;
-  padding-bottom: 10%;
-  
-    
-  .main-cta{
-    background: url('../images/cta.png') no-repeat scroll top left;
-    background-repeat: no-repeat;
-    height: 135px;
-    margin: 0 0 10px 0;
-    background-size: 100%;
-    
-  
-    
-    h1{
-      font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 0;
-      color: $white;
-      font-weight: 300;
-      font-size: 1.2em;
-      text-transform:uppercase;
-      padding: 4% 0 2% 4%;
-      line-height: 1.1em;
-      
+.main-container {
+    @include container(960px);
+    background-color: $white;
+    margin: 0 auto;
+    padding-bottom: 10%;
+    .main-cta {
+        background: url('../images/cta.png') no-repeat scroll top left;
+        background-repeat: no-repeat;
+        height: 135px;
+        margin: 0 0 10px 0;
+        background-size: 100%;
+        h1 {
+            font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: $white;
+            font-weight: 300;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            padding: 4% 0 2% 4%;
+            line-height: 1.1em;
+        }
     }
-  }
-  
-  .cta-button{
-    @include button($green,$white);
-    margin-left: 3%;
-    
-  	@include breakpoint(mobile){
-      font-size: .9em;
-      }
-  }
-  
-  .left{
-    @include span(3 of 5);
-  	@include breakpoint(mobile){
-      width: 100%;
-      }
-  }
-  
-  .main-body{
-    p{
-      color: $dark-gray;
-      font-weight: 300;
-      padding: 5% 0 0 4%;
+    .cta-button {
+        @include button($green, $white);
+        margin-left: 3%;
+        @include breakpoint(mobile) {
+            font-size: .9em;
+        }
     }
-  }
-  
-  .right{
-    @include span(2 of 5);
-  	@include breakpoint(mobile){
-      width: 97%;
+    .left {
+        @include span(3 of 5);
+        @include breakpoint(mobile) {
+            width: 100%;
+        }
     }
-    
-    .gyn{
-     @include promo-img();
-     background-image: url('../images/cta-1.jpg'); 
-     background-repeat: no-repeat;
-     background-size: 100%;
-    
+    .main-body {
+        p {
+            color: $dark-gray;
+            font-weight: 300;
+            padding: 5% 0 0 4%;
+        }
     }
-    
-    .preg{
-      @include promo-img();
-      background-image: url('../images/cta-2.jpg');
-      background-repeat: no-repeat; 
-      background-size: 100%;
+    .right {
+        @include span(2 of 5);
+        @include breakpoint(mobile) {
+            width: 97%;
+        }
+        .gyn {
+            @include promo-img();
+            background-image: url('../images/cta-1.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .preg {
+            @include promo-img();
+            background-image: url('../images/cta-2.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .uri {
+            @include promo-img();
+            background-image: url('../images/cta-3.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
     }
-    .uri{
-      @include promo-img();
-      background-image: url('../images/cta-3.jpg');
-      background-repeat: no-repeat; 
-      background-size: 100%;
+    .highlights {
+        border: 1px solid $gray-background;
+        li {
+            color: $dark-gray;
+            font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            font-weight: 300;
+            line-height: 2em;
+            list-style-image: url('../images/bullet.png');
+        }
+        @include breakpoint(mobile) {
+            display: none;
+        }
     }
-    
-  }
-  
-  .highlights{
-    border: 1px solid $gray-background;
-    li{
-      color: $dark-gray;
-      font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-      font-weight: 300;
-      line-height: 2em;
-      list-style-image: url('../images/bullet.png');
-      
-
+    .highlights-mobile {
+        display: none;
+        @include breakpoint(mobile) {
+            display: block;
+        }
+        border: 1px solid $gray-background;
+        li {
+            color: $dark-gray;
+            font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            font-weight: 300;
+            line-height: 2em;
+            list-style-image: url('../images/bullet.png');
+        }
+        @include breakpoint(mobile) {
+            border: none;
+            padding: 1% 0 1% 0;
+            li {
+                border-bottom: 1px solid $gray-background;
+            }
+        }
     }
-    
-  	@include breakpoint(mobile){
-      display: none;
+    .news {
+        @include breakpoint(mobile) {
+            width: 97%;
+            margin: 0 auto;
+        }
+        padding:10% 0 0 0;
+        h4 {
+            color: $green;
+            font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            font-weight: 300;
+            font-size: 1.5em;
+        }
+        p {
+            padding: 10% 0 0 0;
+            font-weight: 300;
+            color: $dark-gray;
+        }
     }
-    
-  }
-  
-  .highlights-mobile{
-    display: none;
-    
-  	@include breakpoint(mobile){
-      display: block;
-    }
-    
-    border: 1px solid $gray-background;
-    li{
-      color: $dark-gray;
-      font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-      font-weight: 300;
-      line-height: 2em;
-      list-style-image: url('../images/bullet.png');
-      
-
-    }
-    
-  	@include breakpoint(mobile){
-      border: none;
-      padding: 1% 0 1% 0;
-       li{
-         border-bottom: 1px solid $gray-background;
-       }
-    }
-    
-  }
-  
-  
-  .news{
-  	@include breakpoint(mobile){
-      width: 97%;
-      margin: 0 auto;
-    }
-    padding:10% 0 0 0 ;
-    
-    h4{
-      color: $green;
-      font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-      font-weight: 300;
-      font-size: 1.5em;
-    }
-    p{
-      padding:10% 0 0 0 ;
-      font-weight: 300;
-      color: $dark-gray;
-    }
-    
-  }
-  
 }
-.footer{
-  background-color: $gray;
-  padding: 20px 10px 20px 25px;
-  .container{
-  	@include breakpoint(mobile){
-      display: none;
-    }
-    img{
-      float: left;
-      margin-right: 1em;
-    }
-    p{
-      color: $gray-background;
-      line-height: 3em;
-      padding-left: 1em;
-      font-size: 1em;
 
+.footer {
+    background-color: $gray;
+    padding: 20px 10px 20px 25px;
+    .container {
+        @include breakpoint(mobile) {
+            display: none;
+        }
+        img {
+            float: left;
+            margin-right: 1em;
+        }
+        p {
+            color: $gray-background;
+            line-height: 3em;
+            padding-left: 1em;
+            font-size: 1em;
+        }
     }
-  }
-  
-  
-  .container-mobile{
-    display:none;
-    
-  	@include breakpoint(mobile){
-      display: block;
+    .container-mobile {
+        display: none;
+        @include breakpoint(mobile) {
+            display: block;
+        }
+        img {
+            margin: 0 auto;
+            float: none;
+            display: block;
+        }
+        p {
+            margin-top: 4%;
+            line-height: 1.2em;
+            padding-left: 1em;
+            font-size: 1em;
+            text-align: center;
+            color: $dark-gray;
+        }
     }
-    
-    img{
-      margin: 0 auto;
-      float: none;
-      display: block;
-    }
-    p{
-      margin-top: 4%;
-      line-height: 1.2em;
-      padding-left: 1em;
-      font-size: 1em;
-      text-align: center;
-      color:$dark-gray;
-      
-
-    }
-    
-  }
-
 }
